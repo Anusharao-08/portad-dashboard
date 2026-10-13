@@ -122,6 +122,80 @@ PortaD's advantage is not that it magically makes every platform compatible. Its
 
 Architecture ( Development )
 
+## PortaD Architecture
+
+PortaD is an open-source data portability platform designed to help users move data between supported applications while preserving data integrity.
+
+```mermaid
+flowchart TD
+    USER["User / Developer"]
+
+    subgraph APPS["Source and Destination Applications"]
+        SOURCE["Source Platform<br/>Notion, SaaS, Databases"]
+        DEST["Destination Platform<br/>Huly, Other SaaS"]
+    end
+
+    subgraph PORTAD["PortaD Open-Source Platform"]
+        UI["CLI / Dashboard"]
+        API["API and Migration Manager"]
+        AUTH["Authentication and Permissions"]
+        JOBS["Job Status, Retries and Logs"]
+
+        subgraph CORE["PortaD Core Engine"]
+            ADAPTER["Platform Adapters"]
+            EXPORT["Data Export"]
+            MODEL["Common Data Model"]
+            VALIDATE["Validation and Integrity"]
+            TRANSFORM["Mapping and Transformation"]
+            PACKAGE["Portable .portad Package"]
+            IMPORT["Destination Import"]
+            REPORT["Migration Report"]
+
+            ADAPTER --> EXPORT
+            EXPORT --> MODEL
+            MODEL --> VALIDATE
+            VALIDATE --> TRANSFORM
+            TRANSFORM --> PACKAGE
+            PACKAGE --> IMPORT
+            IMPORT --> REPORT
+        end
+
+        UI <--> API
+        API --> AUTH
+        API --> JOBS
+        API --> ADAPTER
+        REPORT --> API
+    end
+
+    STORAGE[("Local / User-Controlled Storage")]
+    DB[("Job Metadata Database")]
+
+    USER --> UI
+    SOURCE --> ADAPTER
+    IMPORT --> DEST
+    PACKAGE <--> STORAGE
+    JOBS --> DB
+
+    classDef platform fill:#082f49,stroke:#0ea5e9,color:#ffffff
+    classDef engine fill:#164e63,stroke:#22d3ee,color:#ffffff
+    classDef storage fill:#1e3a5f,stroke:#60a5fa,color:#ffffff
+
+    class SOURCE,DEST,UI,API,AUTH,JOBS platform
+    class ADAPTER,EXPORT,MODEL,VALIDATE,TRANSFORM,PACKAGE,IMPORT,REPORT engine
+    class STORAGE,DB storage
+```
+
+### How it works
+
+1. **Connect:** Access the source application through its adapter.
+2. **Export:** Collect the supported data.
+3. **Standardize:** Convert it into the PortaD common data model.
+4. **Validate:** Check data structure, references and integrity.
+5. **Transform:** Map data into a destination-compatible format.
+6. **Package and import:** Store portable data and import it into the destination.
+7. **Verify:** Generate a migration report showing results and errors.
+
+**Design principle:** PortaD's core engine and portable format should remain usable independently of the dashboard or any hosted service.
 
 
 **How to understand this architecture**
