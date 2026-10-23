@@ -9,8 +9,32 @@ import Migrate from "./page";
 vi.mock("motion/react", () => ({
   AnimatePresence: ({ children }: { children: React.ReactNode }) => children,
   motion: {
-    div: ({ children, ...props }: React.ComponentProps<"div">) =>
-      React.createElement("div", props, children),
+    div: ({
+      children,
+      ...props
+    }: React.ComponentProps<"div"> & Record<string, unknown>) => {
+      const motionKeys = new Set([
+        "initial",
+        "animate",
+        "exit",
+        "transition",
+        "variants",
+        "whileHover",
+        "whileTap",
+        "whileFocus",
+        "whileDrag",
+        "whileInView",
+        "viewport",
+        "onAnimationStart",
+        "onAnimationComplete",
+        "layout",
+        "layoutId",
+      ]);
+      const domProps = Object.fromEntries(
+        Object.entries(props).filter(([k]) => !motionKeys.has(k)),
+      );
+      return React.createElement("div", domProps, children);
+    },
   },
   useReducedMotion: () => false,
 }));
