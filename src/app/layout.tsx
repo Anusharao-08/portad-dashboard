@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 
 import SiteFooter from "@/components/site-footer";
 import SiteHeader from "@/components/site-header";
+import { ThemeProvider } from "@/components/theme-provider";
 
 import "./globals.css";
 
@@ -42,20 +43,31 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#050d1f",
-  colorScheme: "dark",
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#f8fafc" },
+    { media: "(prefers-color-scheme: dark)", color: "#050d1f" },
+  ],
+  colorScheme: "dark light",
 };
+
+const themeInitScript = `(function(){try{var s=localStorage.getItem('portad-theme');var d=s?s==='dark':window.matchMedia('(prefers-color-scheme: dark)').matches;var r=document.documentElement;if(d){r.classList.add('dark');r.classList.remove('light');}else{r.classList.add('light');r.classList.remove('dark');}}catch(e){}})();`;
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
+      suppressHydrationWarning
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
+      </head>
       <body className="flex min-h-full flex-col font-sans">
-        <SiteHeader />
-        <main className="flex flex-1 flex-col">{children}</main>
-        <SiteFooter />
+        <ThemeProvider>
+          <SiteHeader />
+          <main className="flex flex-1 flex-col">{children}</main>
+          <SiteFooter />
+        </ThemeProvider>
       </body>
     </html>
   );

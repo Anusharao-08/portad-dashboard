@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 import { LogoTile, Wordmark } from "@/components/logo";
+import ThemeToggle from "@/components/theme-toggle";
 import { signOut, useAuth } from "@/lib/auth";
 
 const LINKS = [
@@ -38,7 +39,7 @@ export default function SiteHeader() {
                 className={
                   "rounded-full px-3.5 py-1.5 transition-colors " +
                   (active
-                    ? "bg-white/10 text-white shadow-sm"
+                    ? "bg-brand-500/10 text-brand-600 dark:bg-white/10 dark:text-white font-medium shadow-sm"
                     : "text-frost-400 hover:text-frost-100")
                 }
               >
@@ -48,7 +49,9 @@ export default function SiteHeader() {
           })}
         </nav>
 
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2.5">
+          <ThemeToggle />
+
           {!ready ? (
             <span
               aria-hidden
@@ -66,7 +69,7 @@ export default function SiteHeader() {
               <button
                 type="button"
                 onClick={() => void signOut()}
-                className="rounded-full border border-white/12 px-3.5 py-1.5 text-xs font-medium text-frost-200 transition hover:border-white/30 hover:text-white"
+                className="rounded-full border border-white/12 px-3.5 py-1.5 text-xs font-medium text-frost-200 transition hover:border-white/30 hover:text-frost-50"
               >
                 Sign out
               </button>

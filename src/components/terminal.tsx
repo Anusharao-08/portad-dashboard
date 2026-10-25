@@ -55,7 +55,7 @@ export default function Terminal() {
 
   if (reduce) {
     return (
-      <div className="rounded-2xl border border-white/10 bg-space-950 p-6 font-mono text-sm leading-7 text-frost-300 shadow-2xl shadow-black/40">
+      <div className="rounded-2xl border border-white/10 bg-[#040b1a] p-6 font-mono text-sm leading-7 text-frost-300 shadow-2xl shadow-black/40">
         {COMMANDS.map((cmd) => (
           <div key={cmd}>
             <span className="text-brand-400">$ </span>
@@ -67,7 +67,7 @@ export default function Terminal() {
   }
 
   return (
-    <div className="overflow-hidden rounded-2xl border border-white/10 bg-space-950 shadow-2xl shadow-black/50">
+    <div className="overflow-hidden rounded-2xl border border-white/10 bg-[#040b1a] shadow-2xl shadow-black/50">
       <div className="flex items-center gap-2 border-b border-white/10 bg-white/[0.03] px-4 py-3">
         <span className="h-3 w-3 rounded-full bg-[#ff5f57]" />
         <span className="h-3 w-3 rounded-full bg-[#febc2e]" />
