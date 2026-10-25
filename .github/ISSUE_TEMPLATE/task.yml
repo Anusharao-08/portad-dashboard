@@ -1,0 +1,53 @@
+name: Engineering task
+description: Plan a bounded, testable piece of dashboard work
+title: "[Task]: "
+body:
+  - type: textarea
+    id: outcome
+    attributes:
+      label: Problem and expected outcome
+      description: Who needs this and what should change?
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance criteria
+      description: Observable, testable conditions for completion.
+      placeholder: "- [ ] Given ... when ... then ..."
+    validations:
+      required: true
+  - type: textarea
+    id: verification
+    attributes:
+      label: Verification plan
+      description: Tests, commands, manual checks and evidence expected.
+    validations:
+      required: true
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Priority
+      options: ["P0 - release blocker", "P1 - high", "P2 - normal", "P3 - low"]
+    validations:
+      required: true
+  - type: dropdown
+    id: size
+    attributes:
+      label: Size
+      options: ["S - <= 1 day", "M - 2-3 days", "L - split before scheduling"]
+    validations:
+      required: true
+  - type: input
+    id: owner
+    attributes:
+      label: Proposed owner and mentor/reviewer
+      description: Add actual GitHub handles during triage.
+    validations:
+      required: false
+  - type: textarea
+    id: dependencies
+    attributes:
+      label: Dependencies, risk and accessibility/docs impact
+    validations:
+      required: false
