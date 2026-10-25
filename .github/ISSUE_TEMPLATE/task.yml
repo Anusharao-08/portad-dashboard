@@ -1,7 +1,6 @@
 name: Engineering task
 description: Plan a bounded, testable piece of dashboard work
 title: "[Task]: "
-labels: ["type:task"]
 body:
   - type: textarea
     id: outcome
