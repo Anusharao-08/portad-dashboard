@@ -136,6 +136,10 @@ The project uses GitHub Issues and pull requests as the source of truth for day-
 
 These documents are working agreements and planning proposals, not evidence that a feature is implemented. Confirm API contracts and current code before promising backend behavior.
 
+## Organization workflow
+
+See [the shared PortaD organization operating model](docs/ORGANIZATION_OPERATING_MODEL.md) for cross-repository ownership, sprint workflow, review expectations, release gates, and maintainer setup. See [CONTRIBUTING.md](CONTRIBUTING.md) and [SUPPORT.md](SUPPORT.md) for contribution and escalation guidance.
+
 ## Roadmap
 
 See [ROADMAP.md](ROADMAP.md) for upcoming work, milestone planning, and contribution opportunities.
