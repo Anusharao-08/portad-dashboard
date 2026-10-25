@@ -121,6 +121,21 @@ npm run lint
 npm run build
 ```
 
+## Project handbook
+
+The project uses GitHub Issues and pull requests as the source of truth for day-to-day work. Start here:
+
+- [Product requirements](docs/PRODUCT_REQUIREMENTS.md) — intended users, requirements, constraints, and open product/API questions.
+- [Project operating system](docs/PROJECT_OPERATING_SYSTEM.md) — planning cadence, work lifecycle, review policy, and team metrics.
+- [Engineering workflow](docs/ENGINEERING_WORKFLOW.md) — local checks, PR checklist, testing strategy, and release readiness.
+- [30-day sprint plan](docs/SPRINT_PLAN_2026-10.md) — proposed priorities from 25 October to 23 November 2026.
+- [Fresher mentoring guide](docs/FRESHER_MENTORING.md) — safe starter tasks, mentor expectations, and review guidance.
+- [Security and data-integrity checklist](docs/SECURITY_AND_DATA_INTEGRITY.md) — dashboard-specific privacy, auth, migration UX, and error-handling checks.
+- [Architecture decision records](docs/ARCHITECTURE_DECISIONS.md) — when and how to record technical decisions.
+- [Weekly review template](docs/WEEKLY_REVIEW_TEMPLATE.md) — demo, quality, blocker, and retrospective template.
+
+These documents are working agreements and planning proposals, not evidence that a feature is implemented. Confirm API contracts and current code before promising backend behavior.
+
 ## Roadmap
 
 See [ROADMAP.md](ROADMAP.md) for upcoming work, milestone planning, and contribution opportunities.
