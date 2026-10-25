@@ -26,7 +26,7 @@
   "dependencies": {
     "firebase": "^12.19.0",
     "motion": "^13.4.5",
-    "next": "16.3.8",
+    "next": "^16.4.3",
     "react": "19.2.8",
     "react-dom": "19.2.8"
   },
@@ -50,5 +50,11 @@
     "@firebase/firestore": {
       "@grpc/grpc-js": "1.13.6"
     }
+  },
+  "allowScripts": {
+    "@firebase/util@1.15.3": true,
+    "esbuild@0.28.2": true,
+    "protobufjs@7.6.6": true,
+    "unrs-resolver@1.12.2": true
   }
 }
