@@ -1,8 +1,10 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
+import { IconClose, IconMenu } from "@/components/icons";
 import { LogoTile, Wordmark } from "@/components/logo";
 import ThemeToggle from "@/components/theme-toggle";
 import { signOut, useAuth } from "@/lib/auth";
@@ -17,16 +19,42 @@ const LINKS = [
 export default function SiteHeader() {
   const pathname = usePathname();
   const { ready, session } = useAuth();
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const [prevPathname, setPrevPathname] = useState(pathname);
+
+  // Reset mobile menu if pathname changed
+  if (prevPathname !== pathname) {
+    setPrevPathname(pathname);
+    setMobileOpen(false);
+  }
+
+  // Close on Escape key press for keyboard accessibility
+  useEffect(() => {
+    if (!mobileOpen) return;
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setMobileOpen(false);
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [mobileOpen]);
 
   return (
     <header className="sticky top-0 z-40 border-b border-white/8 bg-space-900/75 backdrop-blur-xl">
       <div className="mx-auto flex h-16 w-full max-w-6xl items-center justify-between gap-4 px-4 sm:px-6">
-        <Link href="/" className="flex items-center gap-2.5 rounded-lg outline-none focus-visible:ring-2 focus-visible:ring-brand-400/70">
+        <Link
+          href="/"
+          className="flex items-center gap-2.5 rounded-lg outline-none focus-visible:ring-2 focus-visible:ring-brand-400/70"
+          onClick={() => setMobileOpen(false)}
+        >
           <LogoTile size={34} />
           <Wordmark />
         </Link>
 
-        <nav className="hidden items-center gap-1 rounded-full border border-white/8 bg-white/[0.03] p-1 text-sm md:flex">
+        {/* Desktop Navigation */}
+        <nav
+          aria-label="Main navigation"
+          className="hidden items-center gap-1 rounded-full border border-white/8 bg-white/[0.03] p-1 text-sm md:flex"
+        >
           {LINKS.map((link) => {
             const active =
               link.href === "/"
@@ -49,9 +77,9 @@ export default function SiteHeader() {
           })}
         </nav>
 
-        <div className="flex items-center gap-2.5">
+        {/* Header Actions & Mobile Menu Toggle */}
+        <div className="flex items-center gap-2 sm:gap-3">
           <ThemeToggle />
-
           {!ready ? (
             <span
               aria-hidden
@@ -82,8 +110,70 @@ export default function SiteHeader() {
               Sign in
             </Link>
           )}
+
+          {/* Mobile Menu Button */}
+          <button
+            type="button"
+            onClick={() => setMobileOpen((prev) => !prev)}
+            aria-expanded={mobileOpen}
+            aria-controls="mobile-navigation"
+            aria-label={mobileOpen ? "Close navigation menu" : "Open navigation menu"}
+            className="grid h-9 w-9 place-items-center rounded-lg border border-white/12 bg-white/[0.04] text-frost-300 transition hover:border-white/30 hover:text-white md:hidden focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-400/70"
+          >
+            {mobileOpen ? <IconClose className="h-4 w-4" /> : <IconMenu className="h-4 w-4" />}
+          </button>
         </div>
       </div>
+
+      {/* Mobile Navigation Drawer */}
+      {mobileOpen && (
+        <div
+          id="mobile-navigation"
+          className="border-t border-white/8 bg-space-950/95 px-4 pb-6 pt-3 backdrop-blur-2xl md:hidden"
+        >
+          <nav aria-label="Mobile navigation" className="flex flex-col gap-1.5">
+            {LINKS.map((link) => {
+              const active =
+                link.href === "/"
+                  ? pathname === "/"
+                  : pathname.startsWith(link.href);
+              return (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  onClick={() => setMobileOpen(false)}
+                  className={
+                    "flex items-center justify-between rounded-xl px-4 py-3 text-sm font-medium transition " +
+                    (active
+                      ? "bg-white/10 text-white shadow-sm font-semibold"
+                      : "text-frost-300 hover:bg-white/[0.05] hover:text-white")
+                  }
+                >
+                  <span>{link.label}</span>
+                  {active && (
+                    <span className="h-1.5 w-1.5 rounded-full bg-brand-400" />
+                  )}
+                </Link>
+              );
+            })}
+
+            {session && (
+              <div className="mt-2 border-t border-white/8 pt-3">
+                <Link
+                  href="/account"
+                  onClick={() => setMobileOpen(false)}
+                  className="flex items-center justify-between rounded-xl px-4 py-2.5 text-xs text-frost-400 hover:bg-white/[0.05] hover:text-white"
+                >
+                  <span>Signed in as</span>
+                  <span className="max-w-[14rem] truncate font-mono text-frost-200">
+                    {session.email}
+                  </span>
+                </Link>
+              </div>
+            )}
+          </nav>
+        </div>
+      )}
     </header>
   );
 }

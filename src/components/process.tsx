@@ -71,9 +71,9 @@ export default function Process() {
         })}
       </div>
       <Reveal delay={0.15}>
-        <div className="mt-8 flex items-center justify-center gap-3 text-sm text-frost-500">
-          <IconTerminal className="h-4 w-4 text-brand-400" />
-          Every stage is a CLI command you can run, script, and audit locally.
+        <div className="mt-8 flex flex-col items-center justify-center gap-2 text-center text-sm text-frost-500 sm:flex-row sm:gap-3">
+          <IconTerminal className="h-4 w-4 text-brand-400 shrink-0" />
+          <span>Every stage is a CLI command you can run, script, and audit locally.</span>
         </div>
       </Reveal>
     </div>
