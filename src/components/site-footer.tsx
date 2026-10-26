@@ -31,8 +31,8 @@ export default function SiteFooter() {
         aria-hidden
         className="absolute inset-x-0 -top-px h-px bg-gradient-to-r from-transparent via-brand-400/50 to-transparent"
       />
-      <div className="mx-auto grid w-full max-w-6xl gap-10 px-4 py-14 sm:px-6 md:grid-cols-[1.4fr_1fr_1fr]">
-        <div>
+      <div className="mx-auto grid w-full max-w-6xl grid-cols-1 gap-10 px-4 py-14 sm:grid-cols-2 sm:px-6 md:grid-cols-[1.4fr_1fr_1fr]">
+        <div className="sm:col-span-2 md:col-span-1">
           <div className="flex items-center gap-2.5">
             <LogoTile size={40} />
             <Wordmark className="text-lg" />

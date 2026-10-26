@@ -80,7 +80,7 @@ export default function CompatibilityMatrix() {
             className="w-full rounded-full border border-white/12 bg-white/[0.04] py-2.5 pl-10 pr-4 text-sm text-frost-100 placeholder:text-frost-600 outline-none transition focus:border-brand-400/60 focus:bg-white/[0.06]"
           />
         </div>
-        <div className="flex gap-2" role="group" aria-label="Filter by status">
+        <div className="flex flex-wrap gap-2" role="group" aria-label="Filter by status">
           {FILTERS.map((option) => (
             <button
               key={option}
@@ -88,7 +88,7 @@ export default function CompatibilityMatrix() {
               onClick={() => setFilter(option)}
               aria-pressed={filter === option}
               className={
-                "rounded-full border px-4 py-2 text-xs font-medium transition " +
+                "min-h-[38px] rounded-full border px-4 py-2 text-xs font-medium transition " +
                 (filter === option
                   ? "border-brand-400/60 bg-brand-500/15 text-brand-200"
                   : "border-white/12 text-frost-400 hover:border-white/30 hover:text-frost-200")

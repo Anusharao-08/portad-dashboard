@@ -128,7 +128,7 @@ export default function Migrate() {
       </div>
 
       {/* Card */}
-      <div className="glass mt-10 min-h-[380px] rounded-3xl p-6 sm:p-8">
+      <div className="glass mt-10 min-h-[380px] rounded-2xl sm:rounded-3xl p-5 sm:p-8">
         <AnimatePresence mode="wait">
           <motion.div
             key={step}
@@ -243,7 +243,7 @@ export default function Migrate() {
                       transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
                       className="overflow-hidden"
                     >
-                      <div className="mt-4 rounded-2xl border border-white/10 bg-space-950/70 p-4 font-mono text-[13px] leading-7">
+                      <div className="mt-4 overflow-x-auto no-scrollbar rounded-2xl border border-white/10 bg-space-950/70 p-4 font-mono text-[13px] leading-7">
                         <div className="mb-2 text-frost-600">
                           preview · {fileName}
                         </div>

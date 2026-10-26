@@ -200,3 +200,19 @@ export function IconFingerprint({ className }: IconProps) {
     </svg>
   );
 }
+
+export function IconMenu({ className }: IconProps) {
+  return (
+    <svg {...svgProps(className)}>
+      <path d="M4 6h16M4 12h16M4 18h16" />
+    </svg>
+  );
+}
+
+export function IconClose({ className }: IconProps) {
+  return (
+    <svg {...svgProps(className)}>
+      <path d="M6 6l12 12M6 18L18 6" />
+    </svg>
+  );
+}

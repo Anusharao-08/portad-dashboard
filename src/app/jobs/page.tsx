@@ -23,7 +23,7 @@ export default function Jobs() {
       />
 
       <Reveal delay={0.1}>
-        <div className="relative mx-auto mt-12 max-w-2xl overflow-hidden rounded-3xl border border-white/10 bg-space-850 p-10 text-center">
+        <div className="relative mx-auto mt-12 max-w-2xl overflow-hidden rounded-3xl border border-white/10 bg-space-850 p-6 sm:p-10 text-center">
           <div
             aria-hidden
             className="absolute inset-0 bg-[radial-gradient(ellipse_70%_60%_at_50%_0%,rgba(22,104,255,0.18),transparent_70%)]"
@@ -34,7 +34,7 @@ export default function Jobs() {
             <svg
               aria-hidden
               viewBox="0 0 220 120"
-              className="mx-auto h-28 w-52 text-brand-400/70"
+              className="mx-auto h-28 w-52 max-w-full text-brand-400/70"
               fill="none"
             >
               <rect x="10" y="18" width="200" height="84" rx="14" stroke="currentColor" strokeOpacity="0.35" strokeWidth="1.5" />
