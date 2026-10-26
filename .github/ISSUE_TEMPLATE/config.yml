@@ -1,8 +1,11 @@
-blank_issues_enabled: true
+blank_issues_enabled: false
 contact_links:
-  - name: Security vulnerability
-    url: https://github.com/IndianjobsTech/portad-dashboard/security/advisories/new
-    about: Report security issues privately — never in a public issue.
-  - name: PortaD live dashboard
-    url: https://portad.vishmuka.in
-    about: See the deployed dashboard this repository builds.
+  - name: Contribution and development workflow
+    url: https://github.com/IndianjobsTech/portad-dashboard/blob/main/CONTRIBUTING.md
+    about: Read the contribution guide before opening a task or pull request.
+  - name: Dashboard project operating system
+    url: https://github.com/IndianjobsTech/portad-dashboard/blob/main/docs/PROJECT_OPERATING_SYSTEM.md
+    about: Review team workflow, ownership, and delivery expectations.
+  - name: Security policy
+    url: https://github.com/IndianjobsTech/portad-dashboard/security/policy
+    about: Report vulnerabilities privately; do not disclose them in public issues.
