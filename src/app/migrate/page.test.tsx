@@ -9,8 +9,6 @@ import Migrate from "./page";
 vi.mock("motion/react", () => ({
   AnimatePresence: ({ children }: { children: React.ReactNode }) => children,
   motion: {
-    div: ({ children, ...props }: React.ComponentProps<"div">) =>
-      React.createElement("div", props, children),
     div: ({
       children,
       ...props
