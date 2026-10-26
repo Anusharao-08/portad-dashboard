@@ -37,6 +37,10 @@ vi.mock("@/lib/auth", () => ({
   signOut: vi.fn(),
 }));
 
+vi.mock("@/components/theme-toggle", () => ({
+  default: () => <button aria-label="Toggle color theme">Theme</button>,
+}));
+
 describe("SiteHeader responsive navigation", () => {
   beforeEach(() => {
     cleanup();
