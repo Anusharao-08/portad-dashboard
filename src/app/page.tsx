@@ -141,7 +141,7 @@ function Cell({ value }: { value: boolean | "partial" }) {
     <span
       role="img"
       aria-label="No"
-      className="grid h-6 w-6 place-items-center rounded-full bg-white/6 text-frost-600"
+      className="grid h-6 w-6 place-items-center rounded-full bg-white/6 text-frost-300"
     >
       <svg
         viewBox="0 0 24 24"
@@ -234,7 +234,7 @@ export default function Home() {
 
       {/* ── Marquee ─────────────────────────────────────────── */}
       <div className="border-b border-white/8 bg-space-950/60 py-10">
-        <p className="mb-6 text-center text-xs font-medium uppercase tracking-[0.24em] text-frost-600">
+        <p className="mb-6 text-center text-xs font-medium uppercase tracking-[0.24em] text-frost-300">
           Adapters being built for the tools you already use
         </p>
         <Marquee />
