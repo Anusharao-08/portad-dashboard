@@ -77,7 +77,7 @@ export default function Migrate() {
         <div className="relative">
           <div
             aria-hidden
-            className="absolute left-0 right-0 top-4 h-px bg-white/10"
+            className="absolute left-0 right-0 top-4 h-px bg-slate-200 dark:bg-white/10"
           />
           <motion.div
             aria-hidden
@@ -101,12 +101,12 @@ export default function Migrate() {
                   <span
                     aria-hidden="true"
                     className={
-                      "flex h-8 w-8 items-center justify-center rounded-full text-xs font-semibold ring-4 ring-space-900 transition-colors " +
+                      "flex h-8 w-8 items-center justify-center rounded-full text-xs font-semibold ring-4 ring-white dark:ring-space-900 transition-colors " +
                       (state === "current"
-                        ? "bg-gradient-to-br from-brand-500 to-ice-400 text-white shadow-[0_0_24px_-4px_rgba(22,104,255,0.8)]"
+                        ? "bg-gradient-to-br from-brand-500 to-ice-400 text-white shadow-md"
                         : state === "done"
-                          ? "bg-emerald-500/90 text-white"
-                          : "border border-white/15 bg-space-850 text-frost-500")
+                          ? "bg-emerald-600 text-white"
+                          : "border border-slate-200 bg-white text-slate-400 dark:border-white/15 dark:bg-space-850 dark:text-frost-500")
                     }
                   >
                     {state === "done" ? "✓" : index + 1}
@@ -115,7 +115,7 @@ export default function Migrate() {
                     aria-current={state === "current" ? "step" : undefined}
                     className={
                       "text-xs font-medium " +
-                      (state === "todo" ? "text-frost-600" : "text-frost-200")
+                      (state === "todo" ? "text-slate-400 dark:text-frost-600" : state === "current" ? "text-brand-600 font-semibold dark:text-frost-100" : "text-slate-700 dark:text-frost-200")
                     }
                   >
                     {label}
@@ -137,8 +137,8 @@ export default function Migrate() {
           >
             {step === 0 && (
               <div>
-                <h2 className="text-lg font-semibold text-frost-50">Choose a source</h2>
-                <p className="mt-1 text-sm text-frost-500">
+                <h2 className="text-lg font-semibold text-slate-900 dark:text-frost-50">Choose a source</h2>
+                <p className="mt-1 text-sm text-slate-600 dark:text-frost-500">
                   Where the workspace lives today.
                 </p>
                 <div className="mt-5 grid gap-3 sm:grid-cols-2">
@@ -151,19 +151,19 @@ export default function Migrate() {
                       className={
                         "rounded-2xl border p-4 text-left transition duration-200 disabled:cursor-not-allowed disabled:opacity-45 " +
                         (source === item.id
-                          ? "border-brand-400 bg-brand-500/10 shadow-[0_0_0_1px_rgba(61,139,255,0.5)]"
-                          : "border-white/10 bg-white/[0.03] hover:border-white/25 hover:bg-white/[0.06]")
+                          ? "border-brand-500 bg-brand-50/70 shadow-sm dark:border-brand-400 dark:bg-brand-500/10"
+                          : "border-slate-200 bg-white hover:border-slate-300 hover:bg-slate-50 dark:border-white/10 dark:bg-white/[0.03] dark:hover:border-white/25 dark:hover:bg-white/[0.06]")
                       }
                     >
                       <span className="flex items-center justify-between">
-                        <span className="font-medium text-frost-100">{item.name}</span>
+                        <span className="font-medium text-slate-900 dark:text-frost-100">{item.name}</span>
                         {!item.ready && (
-                          <span className="rounded-full border border-white/10 px-2 py-0.5 text-[10px] uppercase tracking-wider text-frost-600">
+                          <span className="rounded-full border border-slate-200 bg-slate-50 px-2 py-0.5 text-[10px] uppercase tracking-wider text-slate-500 dark:border-white/10 dark:bg-transparent dark:text-frost-600">
                             planned
                           </span>
                         )}
                       </span>
-                      <span className="mt-1 block text-xs text-frost-500">
+                      <span className="mt-1 block text-xs text-slate-500 dark:text-frost-500">
                         {item.detail}
                       </span>
                     </button>
@@ -174,8 +174,8 @@ export default function Migrate() {
 
             {step === 1 && (
               <div>
-                <h2 className="text-lg font-semibold text-frost-50">Choose a target</h2>
-                <p className="mt-1 text-sm text-frost-500">
+                <h2 className="text-lg font-semibold text-slate-900 dark:text-frost-50">Choose a target</h2>
+                <p className="mt-1 text-sm text-slate-600 dark:text-frost-500">
                   Where the workspace should land.
                 </p>
                 <div className="mt-5 grid gap-3 sm:grid-cols-2">
@@ -188,19 +188,19 @@ export default function Migrate() {
                       className={
                         "rounded-2xl border p-4 text-left transition duration-200 disabled:cursor-not-allowed disabled:opacity-45 " +
                         (target === item.id
-                          ? "border-brand-400 bg-brand-500/10 shadow-[0_0_0_1px_rgba(61,139,255,0.5)]"
-                          : "border-white/10 bg-white/[0.03] hover:border-white/25 hover:bg-white/[0.06]")
+                          ? "border-brand-500 bg-brand-50/70 shadow-sm dark:border-brand-400 dark:bg-brand-500/10"
+                          : "border-slate-200 bg-white hover:border-slate-300 hover:bg-slate-50 dark:border-white/10 dark:bg-white/[0.03] dark:hover:border-white/25 dark:hover:bg-white/[0.06]")
                       }
                     >
                       <span className="flex items-center justify-between">
-                        <span className="font-medium text-frost-100">{item.name}</span>
+                        <span className="font-medium text-slate-900 dark:text-frost-100">{item.name}</span>
                         {!item.ready && (
-                          <span className="rounded-full border border-white/10 px-2 py-0.5 text-[10px] uppercase tracking-wider text-frost-600">
+                          <span className="rounded-full border border-slate-200 bg-slate-50 px-2 py-0.5 text-[10px] uppercase tracking-wider text-slate-500 dark:border-white/10 dark:bg-transparent dark:text-frost-600">
                             planned
                           </span>
                         )}
                       </span>
-                      <span className="mt-1 block text-xs text-frost-500">
+                      <span className="mt-1 block text-xs text-slate-500 dark:text-frost-500">
                         {item.detail}
                       </span>
                     </button>
@@ -211,12 +211,12 @@ export default function Migrate() {
 
             {step === 2 && (
               <div>
-                <h2 className="text-lg font-semibold text-frost-50">Attach a package</h2>
-                <p className="mt-1 text-sm text-frost-500">
-                  Have a <code className="font-mono text-brand-300">.portad</code>{" "}
+                <h2 className="text-lg font-semibold text-slate-900 dark:text-frost-50">Attach a package</h2>
+                <p className="mt-1 text-sm text-slate-600 dark:text-frost-500">
+                  Have a <code className="font-mono text-brand-600 dark:text-brand-300">.portad</code>{" "}
                   package already? Attach it here — files never leave this page.
                 </p>
-                <label className="mt-5 flex cursor-pointer flex-col items-center justify-center rounded-2xl border border-dashed border-white/20 px-6 py-10 text-center transition hover:border-brand-400/60 hover:bg-brand-500/5">
+                <label className="mt-5 flex cursor-pointer flex-col items-center justify-center rounded-2xl border border-dashed border-slate-300 bg-slate-50/50 px-6 py-10 text-center transition hover:border-brand-400 hover:bg-brand-50/40 dark:border-white/20 dark:bg-transparent dark:hover:border-brand-400/60 dark:hover:bg-brand-500/5">
                   <input
                     type="file"
                     accept=".zip,.portad"
@@ -226,10 +226,10 @@ export default function Migrate() {
                       setFileName(file ? file.name : null);
                     }}
                   />
-                  <span className="text-sm font-medium text-frost-100">
+                  <span className="text-sm font-medium text-slate-800 dark:text-frost-100">
                     {fileName ?? "Click to choose a .portad package"}
                   </span>
-                  <span className="mt-1.5 font-mono text-xs text-frost-500">
+                  <span className="mt-1.5 font-mono text-xs text-slate-500 dark:text-frost-500">
                     or run portad export to create one
                   </span>
                 </label>
@@ -243,8 +243,8 @@ export default function Migrate() {
                       transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
                       className="overflow-hidden"
                     >
-                      <div className="mt-4 overflow-x-auto no-scrollbar rounded-2xl border border-white/10 bg-space-950/70 p-4 font-mono text-[13px] leading-7">
-                        <div className="mb-2 text-frost-600">
+                      <div className="mt-4 overflow-x-auto no-scrollbar rounded-2xl border border-slate-200 bg-slate-900 text-frost-100 p-4 font-mono text-[13px] leading-7 dark:border-white/10 dark:bg-space-950/70">
+                        <div className="mb-2 text-slate-400 dark:text-frost-600">
                           preview · {fileName}
                         </div>
                         {TREE.map((node) => (
@@ -264,7 +264,7 @@ export default function Migrate() {
                               {node.name}
                             </span>
                             {node.meta && (
-                              <span className="text-[11px] text-frost-600">
+                              <span className="text-[11px] text-frost-500">
                                 {node.meta}
                               </span>
                             )}
@@ -279,19 +279,19 @@ export default function Migrate() {
 
             {step === 3 && (
               <div>
-                <h2 className="text-lg font-semibold text-frost-50">
+                <h2 className="text-lg font-semibold text-slate-900 dark:text-frost-50">
                   Run the migration
                 </h2>
-                <p className="mt-1 text-sm text-frost-500">
+                <p className="mt-1 text-sm text-slate-600 dark:text-frost-500">
                   Hosted runs are queued for the hosted plane. Until then, the exact
                   pipeline runs locally:
                 </p>
-                <div className="mt-5 overflow-hidden rounded-2xl border border-white/10 bg-space-950">
+                <div className="mt-5 overflow-hidden rounded-2xl border border-slate-200 bg-slate-900 dark:border-white/10 dark:bg-space-950">
                   <div className="flex items-center gap-2 border-b border-white/10 bg-white/[0.03] px-4 py-2.5">
                     <span className="h-2.5 w-2.5 rounded-full bg-[#ff5f57]" />
                     <span className="h-2.5 w-2.5 rounded-full bg-[#febc2e]" />
                     <span className="h-2.5 w-2.5 rounded-full bg-[#28c840]" />
-                    <span className="ml-2 text-[11px] text-frost-600">terminal</span>
+                    <span className="ml-2 text-[11px] text-frost-500">terminal</span>
                   </div>
                   <div className="p-4 font-mono text-sm leading-7 text-frost-300">
                     {CLI_RUN.map((cmd) => (
@@ -302,7 +302,7 @@ export default function Migrate() {
                     ))}
                   </div>
                 </div>
-                <p className="mt-5 flex items-start gap-2 text-sm text-amber-300/90">
+                <p className="mt-5 flex items-start gap-2 text-sm font-medium text-amber-700 dark:text-amber-300/90">
                   <span aria-hidden>⚠</span>
                   Hosted execution not enabled yet — the button below is intentionally
                   disabled.
@@ -310,7 +310,7 @@ export default function Migrate() {
                 <button
                   type="button"
                   disabled
-                  className="mt-4 w-full cursor-not-allowed rounded-2xl bg-white/8 px-4 py-3 text-sm font-medium text-frost-600"
+                  className="mt-4 w-full cursor-not-allowed rounded-2xl border border-slate-200 bg-slate-100 px-4 py-3 text-sm font-medium text-slate-400 dark:border-transparent dark:bg-white/8 dark:text-frost-600"
                 >
                   Run hosted migration
                 </button>
@@ -326,18 +326,18 @@ export default function Migrate() {
           type="button"
           onClick={() => setStep((current) => Math.max(0, current - 1) as Step)}
           disabled={step === 0}
-          className="rounded-full border border-white/15 px-5 py-2.5 text-sm font-medium text-frost-300 transition hover:border-white/35 hover:text-white disabled:cursor-not-allowed disabled:opacity-40"
+          className="rounded-full border border-slate-300 bg-white px-5 py-2.5 text-sm font-medium text-slate-700 shadow-xs transition hover:border-slate-400 hover:bg-slate-50 hover:text-slate-900 disabled:cursor-not-allowed disabled:opacity-40 dark:border-white/15 dark:bg-transparent dark:text-frost-300 dark:shadow-none dark:hover:border-white/35 dark:hover:text-white"
         >
           Back
         </button>
-        <div className="font-mono text-xs text-frost-600">
+        <div className="font-mono text-xs text-slate-500 dark:text-frost-600">
           step {step + 1} / {STEP_LABELS.length}
         </div>
         <button
           type="button"
           onClick={() => setStep((current) => Math.min(3, current + 1) as Step)}
           disabled={step === 3 || !canAdvance}
-          className="btn-gradient rounded-full px-6 py-2.5 text-sm font-semibold text-white transition-all disabled:cursor-not-allowed disabled:bg-none disabled:bg-white/8 disabled:text-frost-600 disabled:shadow-none"
+          className="btn-gradient rounded-full px-6 py-2.5 text-sm font-semibold text-white transition-all disabled:cursor-not-allowed disabled:bg-none disabled:bg-slate-100 disabled:text-slate-400 disabled:shadow-none dark:disabled:bg-white/8 dark:disabled:text-frost-600"
         >
           {step === 2 ? "Continue" : "Next"}
         </button>

@@ -39,7 +39,7 @@ export function LogoTile({
   return (
     <span
       className={
-        "grid shrink-0 place-items-center rounded-[26%] bg-white shadow-[0_6px_20px_-8px_rgba(22,104,255,0.55)] ring-1 ring-white/60 " +
+        "grid shrink-0 place-items-center rounded-[26%] bg-white shadow-[0_4px_16px_-4px_rgba(22,104,255,0.35)] ring-1 ring-slate-200/90 dark:shadow-[0_6px_20px_-8px_rgba(22,104,255,0.55)] dark:ring-white/60 " +
         (className ?? "")
       }
       style={{ width: size, height: size }}

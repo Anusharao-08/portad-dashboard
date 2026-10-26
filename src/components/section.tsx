@@ -20,7 +20,7 @@ export function SectionHeading({
     <Reveal className={centered ? "mx-auto max-w-2xl text-center" : "max-w-2xl"}>
       <p
         className={
-          "text-xs font-semibold uppercase tracking-[0.22em] text-brand-400 " +
+          "text-xs font-semibold uppercase tracking-[0.22em] text-brand-600 dark:text-brand-400 " +
           (centered ? "" : "")
         }
         id={id}

@@ -32,8 +32,8 @@ function Badge({ status }: { status: Entry["status"] }) {
       className={
         "inline-flex shrink-0 items-center rounded-full px-2.5 py-1 text-[11px] font-semibold uppercase tracking-wider " +
         (ready
-          ? "border border-emerald-400/30 bg-emerald-400/10 text-emerald-300"
-          : "border border-white/12 bg-white/[0.05] text-frost-500")
+          ? "border border-emerald-500/30 bg-emerald-50 text-emerald-700 dark:border-emerald-400/30 dark:bg-emerald-400/10 dark:text-emerald-300"
+          : "border border-slate-200 bg-slate-100 text-slate-500 dark:border-white/12 dark:bg-white/[0.05] dark:text-frost-500")
       }
     >
       {status}
@@ -68,7 +68,7 @@ export default function CompatibilityMatrix() {
     <div>
       <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
         <div className="relative w-full sm:max-w-xs">
-          <span className="pointer-events-none absolute left-3.5 top-1/2 -translate-y-1/2 text-frost-600">
+          <span className="pointer-events-none absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 dark:text-frost-600">
             <IconSearch className="h-4 w-4" />
           </span>
           <input
@@ -77,7 +77,7 @@ export default function CompatibilityMatrix() {
             onChange={(event) => setQuery(event.target.value)}
             placeholder="Search platforms…"
             aria-label="Search platforms"
-            className="w-full rounded-full border border-white/12 bg-white/[0.04] py-2.5 pl-10 pr-4 text-sm text-frost-100 placeholder:text-frost-600 outline-none transition focus:border-brand-400/60 focus:bg-white/[0.06]"
+            className="w-full rounded-full border border-slate-300 bg-white py-2.5 pl-10 pr-4 text-sm text-slate-900 placeholder:text-slate-400 shadow-xs outline-none transition focus:border-brand-500 focus:ring-1 focus:ring-brand-500 dark:border-white/12 dark:bg-white/[0.04] dark:text-frost-100 dark:placeholder:text-frost-600 dark:shadow-none dark:focus:border-brand-400/60 dark:focus:ring-0"
           />
         </div>
         <div className="flex flex-wrap gap-2" role="group" aria-label="Filter by status">
@@ -90,8 +90,8 @@ export default function CompatibilityMatrix() {
               className={
                 "min-h-[38px] rounded-full border px-4 py-2 text-xs font-medium transition " +
                 (filter === option
-                  ? "border-brand-400/60 bg-brand-500/15 text-brand-200"
-                  : "border-white/12 text-frost-400 hover:border-white/30 hover:text-frost-200")
+                  ? "border-brand-500 bg-brand-50 text-brand-700 font-semibold shadow-xs dark:border-brand-400/60 dark:bg-brand-500/15 dark:text-brand-200 dark:shadow-none"
+                  : "border-slate-300 bg-white text-slate-600 hover:border-slate-400 hover:bg-slate-50 hover:text-slate-900 dark:border-white/12 dark:bg-transparent dark:text-frost-400 dark:hover:border-white/30 dark:hover:text-frost-200")
               }
             >
               {option}
@@ -103,7 +103,7 @@ export default function CompatibilityMatrix() {
       <div className="mt-10 grid gap-6 md:grid-cols-2">
         {(["source", "target"] as const).map((kind) => (
           <section key={kind}>
-            <h2 className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-frost-600">
+            <h2 className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-slate-500 dark:text-frost-600">
               {kind === "source" ? "Sources" : "Targets"}
             </h2>
             <ul className="space-y-3">
@@ -119,8 +119,8 @@ export default function CompatibilityMatrix() {
                     className="glass flex items-start justify-between gap-4 rounded-2xl p-4 transition hover:border-brand-400/30"
                   >
                     <div className="min-w-0">
-                      <p className="font-medium text-frost-100">{item.name}</p>
-                      <p className="mt-0.5 text-xs leading-5 text-frost-500">
+                      <p className="font-medium text-slate-900 dark:text-frost-100">{item.name}</p>
+                      <p className="mt-0.5 text-xs leading-5 text-slate-500 dark:text-frost-500">
                         {item.detail}
                       </p>
                     </div>
@@ -130,7 +130,7 @@ export default function CompatibilityMatrix() {
               </AnimatePresence>
             </ul>
             {groups[kind].length === 0 && (
-              <p className="rounded-2xl border border-dashed border-white/12 p-6 text-center text-sm text-frost-600">
+              <p className="rounded-2xl border border-dashed border-slate-300 p-6 text-center text-sm text-slate-500 dark:border-white/12 dark:text-frost-600">
                 No matches — try another search.
               </p>
             )}

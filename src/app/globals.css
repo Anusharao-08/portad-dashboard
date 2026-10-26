@@ -78,14 +78,14 @@
   --frost-500: #64748b;
   --frost-600: #8899ac;
 
-  --glass-bg: rgba(255, 255, 255, 0.85);
-  --glass-border: rgba(15, 32, 73, 0.09);
-  --glass-strong-bg: rgba(255, 255, 255, 0.96);
-  --glass-strong-border: rgba(15, 32, 73, 0.12);
+  --glass-bg: rgba(255, 255, 255, 0.88);
+  --glass-border: rgba(15, 32, 73, 0.08);
+  --glass-strong-bg: rgba(255, 255, 255, 0.98);
+  --glass-strong-border: rgba(15, 32, 73, 0.10);
 
   --gradient-soft-from: #091634;
   --gradient-soft-to: #1e3a8a;
-  --grid-color: rgba(15, 79, 214, 0.06);
+  --grid-color: rgba(15, 79, 214, 0.035);
   --hairline-color: rgba(15, 32, 73, 0.06);
 }
 
@@ -155,10 +155,40 @@ body {
   -webkit-mask-image: radial-gradient(ellipse 90% 70% at 50% 0%, black 35%, transparent 78%);
 }
 
-.light [class*="border-white/"] {
-  border-color: rgba(15, 32, 73, 0.1);
+.light .glass {
+  background: var(--glass-bg, rgba(255, 255, 255, 0.88));
+  border: 1px solid var(--glass-border, rgba(15, 32, 73, 0.08));
+  box-shadow: 0 1px 3px 0 rgba(15, 23, 42, 0.04), 0 1px 2px -1px rgba(15, 23, 42, 0.04);
 }
-.light [class*="border-white/12"],
+
+.light .glass:hover {
+  border-color: rgba(22, 104, 255, 0.35);
+  box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.08), 0 8px 10px -6px rgba(15, 23, 42, 0.04);
+}
+
+.light .glass-strong {
+  background: var(--glass-strong-bg, rgba(255, 255, 255, 0.98));
+  border: 1px solid var(--glass-strong-border, rgba(15, 32, 73, 0.10));
+  box-shadow: 0 20px 45px -15px rgba(15, 32, 73, 0.08), 0 0 0 1px rgba(15, 32, 73, 0.05);
+}
+
+.light [class*="hover:text-white"]:hover {
+  color: #0b1528;
+}
+
+.light [class*="hover:text-frost-50"]:hover {
+  color: #0b1528;
+}
+
+.light [class*="border-white/8"] {
+  border-color: rgba(15, 32, 73, 0.08);
+}
+.light [class*="border-white/10"] {
+  border-color: rgba(15, 32, 73, 0.10);
+}
+.light [class*="border-white/12"] {
+  border-color: rgba(15, 32, 73, 0.12);
+}
 .light [class*="border-white/15"],
 .light [class*="border-white/20"],
 .light [class*="border-white/25"] {
@@ -166,21 +196,25 @@ body {
 }
 .light [class*="border-white/30"],
 .light [class*="border-white/35"] {
-  border-color: rgba(15, 32, 73, 0.25);
+  border-color: rgba(15, 32, 73, 0.24);
 }
 .light [class*="bg-white/[0.03]"],
-.light [class*="bg-white/[0.04]"] {
-  background-color: rgba(15, 32, 73, 0.03);
+.light [class*="bg-white/[0.04]"],
+.light [class*="bg-white/[0.05]"] {
+  background-color: rgba(15, 32, 73, 0.035);
 }
 .light [class*="bg-white/6"] {
   background-color: rgba(15, 32, 73, 0.05);
 }
+.light [class*="bg-white/8"] {
+  background-color: rgba(15, 32, 73, 0.07);
+}
 .light [class*="bg-white/10"] {
-  background-color: rgba(15, 32, 73, 0.08);
+  background-color: rgba(15, 32, 73, 0.09);
 }
 .light .shadow-black\/50,
 .light .shadow-black\/40 {
-  --tw-shadow-color: rgba(15, 32, 73, 0.15);
+  --tw-shadow-color: rgba(15, 32, 73, 0.12);
 }
 
 .no-scrollbar {

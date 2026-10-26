@@ -23,10 +23,10 @@ export default function Jobs() {
       />
 
       <Reveal delay={0.1}>
-        <div className="relative mx-auto mt-12 max-w-2xl overflow-hidden rounded-3xl border border-white/10 bg-space-850 p-6 sm:p-10 text-center">
+        <div className="relative mx-auto mt-12 max-w-2xl overflow-hidden rounded-3xl border border-slate-200 bg-white/90 p-6 sm:p-10 text-center shadow-sm dark:border-white/10 dark:bg-space-850 dark:shadow-none">
           <div
             aria-hidden
-            className="absolute inset-0 bg-[radial-gradient(ellipse_70%_60%_at_50%_0%,rgba(22,104,255,0.18),transparent_70%)]"
+            className="absolute inset-0 bg-[radial-gradient(ellipse_70%_60%_at_50%_0%,rgba(22,104,255,0.1),transparent_70%)] dark:bg-[radial-gradient(ellipse_70%_60%_at_50%_0%,rgba(22,104,255,0.18),transparent_70%)]"
           />
 
           <div className="relative">
@@ -34,7 +34,7 @@ export default function Jobs() {
             <svg
               aria-hidden
               viewBox="0 0 220 120"
-              className="mx-auto h-28 w-52 max-w-full text-brand-400/70"
+              className="mx-auto h-28 w-52 max-w-full text-brand-500/80 dark:text-brand-400/70"
               fill="none"
             >
               <rect x="10" y="18" width="200" height="84" rx="14" stroke="currentColor" strokeOpacity="0.35" strokeWidth="1.5" />
@@ -51,8 +51,8 @@ export default function Jobs() {
               <path d="M196 84v6l4 2.5" stroke="currentColor" strokeOpacity="0.8" strokeWidth="1.5" strokeLinecap="round" />
             </svg>
 
-            <h2 className="mt-6 text-xl font-semibold text-frost-50">No jobs yet</h2>
-            <p className="mx-auto mt-2 max-w-md text-sm leading-6 text-frost-400">
+            <h2 className="mt-6 text-xl font-semibold text-slate-900 dark:text-frost-50">No jobs yet</h2>
+            <p className="mx-auto mt-2 max-w-md text-sm leading-6 text-slate-600 dark:text-frost-400">
               Start a migration to create your first run — or run the pipeline locally
               with the CLI and it will show up here once the hosted worker lands.
             </p>
@@ -64,7 +64,7 @@ export default function Jobs() {
                 Start a migration
                 <IconArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
               </Link>
-              <span className="font-mono text-xs text-frost-600">portad jobs list</span>
+              <span className="font-mono text-xs text-slate-500 dark:text-frost-600">portad jobs list</span>
             </div>
           </div>
         </div>
@@ -76,20 +76,20 @@ export default function Jobs() {
           return (
             <Reveal key={item.title} delay={0.15 + i * 0.08}>
               <div className="glass h-full rounded-2xl p-5">
-                <span className="grid h-9 w-9 place-items-center rounded-lg bg-brand-500/15 text-brand-300 ring-1 ring-brand-400/25">
+                <span className="grid h-9 w-9 place-items-center rounded-lg bg-brand-50 text-brand-600 ring-1 ring-brand-200 dark:bg-brand-500/15 dark:text-brand-300 dark:ring-brand-400/25">
                   <Icon className="h-4 w-4" />
                 </span>
-                <h3 className="mt-3.5 text-sm font-semibold text-frost-100">
+                <h3 className="mt-3.5 text-sm font-semibold text-slate-900 dark:text-frost-100">
                   {item.title}
                 </h3>
-                <p className="mt-1 text-xs leading-5 text-frost-500">{item.body}</p>
+                <p className="mt-1 text-xs leading-5 text-slate-600 dark:text-frost-500">{item.body}</p>
               </div>
             </Reveal>
           );
         })}
       </div>
 
-      <p className="mt-10 text-center text-xs text-frost-600">
+      <p className="mt-10 text-center text-xs text-slate-500 dark:text-frost-600">
         Job records will live in Firestore with Postgres as the orchestration store on
         Railway; both light up with the hosted worker.
       </p>
