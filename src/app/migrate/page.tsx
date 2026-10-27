@@ -99,7 +99,6 @@ export default function Migrate() {
                   className="flex flex-col items-center gap-2"
                 >
                   <span
-                    aria-hidden="true"
                     className={
                       "relative flex h-8 w-8 items-center justify-center rounded-full text-xs font-semibold ring-4 ring-white dark:ring-space-900 transition-colors " +
                       (state === "current"
@@ -109,7 +108,7 @@ export default function Migrate() {
                           : "border border-slate-200 bg-white text-slate-400 dark:border-white/15 dark:bg-space-850 dark:text-frost-500")
                     }
                   >
-                    {state === "done" ? "✓" : index + 1}
+                    <span aria-hidden="true">{state === "done" ? "✓" : index + 1}</span>
                     <span className="sr-only">
                       {state === "done"
                         ? `, step ${index + 1} completed`
