@@ -101,7 +101,7 @@ export default function Migrate() {
                   <span
                     aria-hidden="true"
                     className={
-                      "flex h-8 w-8 items-center justify-center rounded-full text-xs font-semibold ring-4 ring-white dark:ring-space-900 transition-colors " +
+                      "relative flex h-8 w-8 items-center justify-center rounded-full text-xs font-semibold ring-4 ring-white dark:ring-space-900 transition-colors " +
                       (state === "current"
                         ? "bg-gradient-to-br from-brand-500 to-ice-400 text-white shadow-md"
                         : state === "done"
@@ -110,6 +110,13 @@ export default function Migrate() {
                     }
                   >
                     {state === "done" ? "✓" : index + 1}
+                    <span className="sr-only">
+                      {state === "done"
+                        ? `, step ${index + 1} completed`
+                        : state === "current"
+                          ? `, step ${index + 1}, current step`
+                          : `, step ${index + 1}, upcoming`}
+                    </span>
                   </span>
                   <span
                     aria-current={state === "current" ? "step" : undefined}
