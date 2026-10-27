@@ -25,7 +25,7 @@ const COLUMNS: { title: string; links: { label: string; href: string }[] }[] = [
 
 export default function SiteFooter() {
   return (
-    <footer className="relative border-t border-white/8 bg-space-950">
+    <footer className="relative border-t border-slate-200 bg-white dark:border-white/8 dark:bg-space-950">
       <div
         aria-hidden
         className="absolute inset-x-0 -top-px h-px bg-gradient-to-r from-transparent via-brand-400/50 to-transparent"
@@ -36,7 +36,7 @@ export default function SiteFooter() {
             <LogoTile size={40} />
             <Wordmark className="text-lg" />
           </div>
-          <p className="mt-4 max-w-xs text-sm leading-6 text-frost-500">
+          <p className="mt-4 max-w-xs text-sm leading-6 text-slate-600 dark:text-frost-500">
             The open way to move your data — local-first, resumable, and verifiable
             SaaS workspace migrations.
           </p>
@@ -56,7 +56,7 @@ export default function SiteFooter() {
                   <li key={link.label}>
                     <a
                       href={link.href}
-                      className="text-frost-400 transition-colors hover:text-frost-50"
+                      className="text-slate-600 transition-colors hover:text-brand-600 dark:text-frost-400 dark:hover:text-frost-50"
                     >
                       {link.label}
                     </a>
@@ -65,7 +65,7 @@ export default function SiteFooter() {
                   <li key={link.label}>
                     <Link
                       href={link.href}
-                      className="text-frost-400 transition-colors hover:text-frost-50"
+                      className="text-slate-600 transition-colors hover:text-brand-600 dark:text-frost-400 dark:hover:text-frost-50"
                     >
                       {link.label}
                     </Link>

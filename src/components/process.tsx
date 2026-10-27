@@ -54,12 +54,12 @@ export default function Process() {
           const Icon = step.icon;
           return (
             <Reveal key={step.title} delay={i * 0.07} className="h-full">
-              <div className="glass group relative h-full rounded-2xl p-6 transition duration-300 hover:border-brand-400/40 hover:bg-white/[0.06]">
+              <div className="glass group relative h-full rounded-2xl p-6 transition duration-300 hover:border-brand-500/40 hover:bg-white dark:hover:bg-white/[0.06]">
                 <div className="flex items-center justify-between">
-                  <span className="grid h-11 w-11 place-items-center rounded-xl border border-brand-400/30 bg-brand-500/10 text-brand-300 transition group-hover:bg-brand-500/20">
+                  <span className="grid h-11 w-11 place-items-center rounded-xl border border-brand-200 bg-brand-50 text-brand-600 transition group-hover:bg-brand-100/70 dark:border-brand-400/30 dark:bg-brand-500/10 dark:text-brand-300 dark:group-hover:bg-brand-500/20">
                     <Icon className="h-5 w-5" />
                   </span>
-                  <span className="font-mono text-xs tracking-widest text-frost-600">
+                  <span className="font-mono text-xs tracking-widest text-slate-400 dark:text-frost-600">
                     0{i + 1}
                   </span>
                 </div>
@@ -72,7 +72,7 @@ export default function Process() {
       </div>
       <Reveal delay={0.15}>
         <div className="mt-8 flex flex-col items-center justify-center gap-2 text-center text-sm text-frost-500 sm:flex-row sm:gap-3">
-          <IconTerminal className="h-4 w-4 text-brand-400 shrink-0" />
+          <IconTerminal className="h-4 w-4 text-brand-600 dark:text-brand-400 shrink-0" />
           <span>Every stage is a CLI command you can run, script, and audit locally.</span>
         </div>
       </Reveal>

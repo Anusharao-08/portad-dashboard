@@ -105,7 +105,7 @@ function Cell({ value }: { value: boolean | "partial" }) {
       <span
         role="img"
         aria-label="Yes"
-        className="grid h-6 w-6 place-items-center rounded-full bg-emerald-400/15 text-emerald-300"
+        className="grid h-6 w-6 place-items-center rounded-full bg-emerald-100 text-emerald-700 dark:bg-emerald-400/15 dark:text-emerald-300"
       >
         <svg
           viewBox="0 0 24 24"
@@ -130,7 +130,7 @@ function Cell({ value }: { value: boolean | "partial" }) {
       <span
         role="img"
         aria-label="Partial support"
-        className="grid h-6 w-6 place-items-center rounded-full bg-amber-400/15 text-amber-300 text-xs font-bold"
+        className="grid h-6 w-6 place-items-center rounded-full bg-amber-100 text-amber-700 dark:bg-amber-400/15 dark:text-amber-300 text-xs font-bold"
       >
         ~
       </span>
@@ -161,7 +161,7 @@ export default function Home() {
   return (
     <>
       {/* ── Hero ─────────────────────────────────────────────── */}
-      <div className="relative overflow-hidden border-b border-white/8">
+      <div className="relative overflow-hidden border-b border-slate-200/80 dark:border-white/8">
         <div aria-hidden className="grid-bg absolute inset-0" />
         <div
           aria-hidden
@@ -176,7 +176,7 @@ export default function Home() {
           <div className="grid items-center gap-14 lg:grid-cols-[1.15fr_1fr]">
             <div>
               <Reveal>
-                <span className="glass inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs font-medium text-frost-300">
+                <span className="glass inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs font-medium text-slate-700 shadow-xs dark:text-frost-300 dark:shadow-none">
                   <span className="h-1.5 w-1.5 rounded-full bg-gradient-to-r from-brand-400 to-ice-400" />
                   Local-first data portability · v0.1
                 </span>
@@ -209,7 +209,7 @@ export default function Home() {
                   </Link>
                   <Link
                     href="/compatibility"
-                    className="inline-flex items-center gap-2 rounded-full border border-white/15 px-6 py-3 text-sm font-medium text-frost-200 transition hover:border-white/35 hover:text-white"
+                    className="inline-flex items-center gap-2 rounded-full border border-slate-300 bg-white/80 px-6 py-3 text-sm font-medium text-slate-700 shadow-xs transition hover:border-slate-400 hover:bg-slate-50 hover:text-slate-900 dark:border-white/15 dark:bg-transparent dark:text-frost-200 dark:shadow-none dark:hover:border-white/35 dark:hover:text-white"
                   >
                     See what moves
                   </Link>
@@ -253,7 +253,7 @@ export default function Home() {
       </Section>
 
       {/* ── Features ────────────────────────────────────────── */}
-      <div className="border-y border-white/8 bg-space-950/60">
+      <div className="border-y border-slate-200/80 bg-slate-50/70 dark:border-white/8 dark:bg-space-950/60">
         <Section id="features">
           <SectionHeading
             eyebrow="Principles"
@@ -270,13 +270,13 @@ export default function Home() {
                       aria-hidden
                       className="absolute -right-10 -top-10 h-32 w-32 rounded-full bg-brand-500/0 blur-2xl transition group-hover:bg-brand-500/20"
                     />
-                    <span className="grid h-11 w-11 place-items-center rounded-xl bg-gradient-to-br from-brand-500/25 to-ice-400/10 text-brand-300 ring-1 ring-brand-400/30">
+                    <span className="grid h-11 w-11 place-items-center rounded-xl bg-gradient-to-br from-brand-500/15 to-ice-400/10 text-brand-600 ring-1 ring-brand-200 dark:from-brand-500/25 dark:text-brand-300 dark:ring-brand-400/30">
                       <Icon className="h-5 w-5" />
                     </span>
-                    <h3 className="mt-5 text-lg font-semibold text-frost-50">
+                    <h3 className="mt-5 text-lg font-semibold text-slate-900 dark:text-frost-50">
                       {feature.title}
                     </h3>
-                    <p className="mt-2 text-sm leading-6 text-frost-400">{feature.body}</p>
+                    <p className="mt-2 text-sm leading-6 text-slate-600 dark:text-frost-400">{feature.body}</p>
                   </div>
                 </Reveal>
               );
@@ -301,12 +301,18 @@ export default function Home() {
                   key={category.title}
                   className="glass w-[260px] shrink-0 snap-start rounded-2xl p-5 sm:p-6 transition duration-300 hover:border-brand-400/40 sm:w-[320px]"
                 >
-                  <span className="grid h-11 w-11 place-items-center rounded-xl border border-white/10 bg-white/[0.05] text-brand-300">
+                  <span className="grid h-11 w-11 place-items-center rounded-xl border border-slate-200 bg-white text-brand-600 shadow-xs dark:border-white/10 dark:bg-white/[0.05] dark:text-brand-300 dark:shadow-none">
                     <Icon className="h-5 w-5" />
                   </span>
-                  <h3 className="mt-5 font-semibold text-frost-50">{category.title}</h3>
-                  <p className="mt-1.5 text-sm leading-6 text-frost-400">{category.body}</p>
-                  <span className="mt-4 inline-flex rounded-full border border-emerald-400/25 bg-emerald-400/10 px-2.5 py-1 font-mono text-[11px] tracking-wider text-emerald-300">
+                  <h3 className="mt-5 font-semibold text-slate-900 dark:text-frost-50">{category.title}</h3>
+                  <p className="mt-1.5 text-sm leading-6 text-slate-600 dark:text-frost-400">{category.body}</p>
+                  <span
+                    className={`mt-4 inline-flex rounded-full border px-2.5 py-1 font-mono text-[11px] font-medium tracking-wider ${
+                      category.fidelity === "PRESERVED"
+                        ? "border-emerald-500/30 bg-emerald-50 text-emerald-700 dark:border-emerald-400/25 dark:bg-emerald-400/10 dark:text-emerald-300"
+                        : "border-blue-500/30 bg-blue-50 text-blue-700 dark:border-blue-400/25 dark:bg-blue-400/10 dark:text-blue-300"
+                    }`}
+                  >
                     {category.fidelity}
                   </span>
                 </div>
@@ -317,11 +323,11 @@ export default function Home() {
       </Section>
 
       {/* ── CLI + terminal ──────────────────────────────────── */}
-      <div className="border-y border-white/8 bg-space-950/60">
+      <div className="border-y border-slate-200/80 bg-slate-50/70 dark:border-white/8 dark:bg-space-950/60">
         <Section id="cli">
           <div className="grid items-center gap-12 lg:grid-cols-2">
             <Reveal>
-              <p className="text-xs font-semibold uppercase tracking-[0.22em] text-brand-400">
+              <p className="text-xs font-semibold uppercase tracking-[0.22em] text-brand-600 dark:text-brand-400">
                 From your terminal
               </p>
               <h2 className="mt-3 text-3xl font-semibold tracking-tight text-gradient-soft sm:text-4xl">
@@ -329,19 +335,19 @@ export default function Home() {
                 <br />
                 the CLI, exactly.
               </h2>
-              <p className="mt-4 max-w-lg leading-7 text-frost-400">
+              <p className="mt-4 max-w-lg leading-7 text-slate-600 dark:text-frost-400">
                 Every button in this dashboard maps to a command you can run yourself.
                 No black boxes: script it, audit it, pin it in CI. Hosted execution —
                 upload a package, we run the pipeline — arrives with the hosted plane.
               </p>
-              <ul className="mt-7 space-y-3 text-sm text-frost-300">
+              <ul className="mt-7 space-y-3 text-sm text-slate-700 dark:text-frost-300">
                 {[
                   "One binary, zero daemons on your machine",
                   "Exit codes and JSON reports for automation",
                   "The same checksums, wherever it runs",
                 ].map((line) => (
                   <li key={line} className="flex items-start gap-3">
-                    <span className="mt-0.5 grid h-5 w-5 shrink-0 place-items-center rounded-full bg-brand-500/15 text-brand-300">
+                    <span className="mt-0.5 grid h-5 w-5 shrink-0 place-items-center rounded-full bg-brand-500/15 text-brand-600 dark:text-brand-300">
                       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.6} className="h-3 w-3">
                         <path d="M5 12.5l4.5 4.5L19 7.5" strokeLinecap="round" strokeLinejoin="round" />
                       </svg>
@@ -350,8 +356,8 @@ export default function Home() {
                   </li>
                 ))}
               </ul>
-              <div className="mt-8 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 font-mono text-xs text-frost-400">
-                <IconTerminal className="h-4 w-4 text-brand-400" />
+              <div className="mt-8 inline-flex items-center gap-2 rounded-full border border-slate-300 bg-white px-4 py-2 font-mono text-xs text-slate-700 shadow-xs dark:border-white/10 dark:bg-white/[0.04] dark:text-frost-400 dark:shadow-none">
+                <IconTerminal className="h-4 w-4 text-brand-600 dark:text-brand-400" />
                 curl -fsSL portad.dev | sh
               </div>
             </Reveal>
@@ -374,16 +380,16 @@ export default function Home() {
             <table className="w-full min-w-[560px] border-separate border-spacing-0 text-sm">
               <thead>
                 <tr className="text-left">
-                  <th className="rounded-l-2xl border-b border-white/10 px-5 py-4 font-medium text-frost-500">
+                  <th className="rounded-l-2xl border-b border-slate-200 px-5 py-4 font-medium text-slate-500 dark:border-white/10 dark:text-frost-500">
                     Capability
                   </th>
-                  <th className="border-b border-white/10 bg-brand-500/10 px-5 py-4 text-center font-semibold text-brand-300">
+                  <th className="border-b border-slate-200 bg-brand-500/10 px-5 py-4 text-center font-semibold text-brand-700 dark:border-white/10 dark:text-brand-300">
                     PortaD
                   </th>
-                  <th className="border-b border-white/10 px-5 py-4 text-center font-medium text-frost-500">
+                  <th className="border-b border-slate-200 px-5 py-4 text-center font-medium text-slate-500 dark:border-white/10 dark:text-frost-500">
                     Manual copy
                   </th>
-                  <th className="rounded-r-2xl border-b border-white/10 px-5 py-4 text-center font-medium text-frost-500">
+                  <th className="rounded-r-2xl border-b border-slate-200 px-5 py-4 text-center font-medium text-slate-500 dark:border-white/10 dark:text-frost-500">
                     Vendor export
                   </th>
                 </tr>
@@ -391,20 +397,20 @@ export default function Home() {
               <tbody>
                 {COMPARISON.map((row) => (
                   <tr key={row.row} className="group">
-                    <td className="border-b border-white/6 px-5 py-4 text-frost-300 transition group-hover:text-frost-50">
+                    <td className="border-b border-slate-200/80 px-5 py-4 text-slate-700 transition group-hover:text-slate-900 dark:border-white/6 dark:text-frost-300 dark:group-hover:text-frost-50">
                       {row.row}
                     </td>
-                    <td className="border-b border-white/6 bg-brand-500/[0.07] px-5 py-4 text-center transition group-hover:bg-brand-500/15">
+                    <td className="border-b border-slate-200/80 bg-brand-500/[0.05] px-5 py-4 text-center transition group-hover:bg-brand-500/10 dark:border-white/6 dark:bg-brand-500/[0.07] dark:group-hover:bg-brand-500/15">
                       <span className="inline-flex justify-center">
                         <Cell value={row.portad} />
                       </span>
                     </td>
-                    <td className="border-b border-white/6 px-5 py-4 text-center">
+                    <td className="border-b border-slate-200/80 px-5 py-4 text-center dark:border-white/6">
                       <span className="inline-flex justify-center">
                         <Cell value={row.manual} />
                       </span>
                     </td>
-                    <td className="border-b border-white/6 px-5 py-4 text-center">
+                    <td className="border-b border-slate-200/80 px-5 py-4 text-center dark:border-white/6">
                       <span className="inline-flex justify-center">
                         <Cell value={row.vendor} />
                       </span>
@@ -420,14 +426,14 @@ export default function Home() {
       {/* ── Security band ───────────────────────────────────── */}
       <Section id="security" className="pb-4!">
         <Reveal>
-          <div className="relative overflow-hidden rounded-3xl border border-brand-400/25 bg-gradient-to-br from-brand-600/20 via-space-850 to-ice-500/10 p-8 sm:p-12">
+          <div className="relative overflow-hidden rounded-3xl border border-slate-800/20 bg-gradient-to-br from-slate-900 via-space-900 to-brand-950 p-8 text-white shadow-xl sm:p-12 dark:border-brand-400/25 dark:from-brand-600/20 dark:via-space-850 dark:to-ice-500/10 dark:shadow-none">
             <div
               aria-hidden
               className="absolute -right-24 -top-24 h-64 w-64 rounded-full bg-brand-500/25 blur-3xl"
             />
             <div className="relative grid gap-10 md:grid-cols-[1.2fr_1fr]">
               <div>
-                <span className="grid h-12 w-12 place-items-center rounded-2xl bg-white/10 text-brand-200 ring-1 ring-white/15">
+                <span className="grid h-12 w-12 place-items-center rounded-2xl bg-white/10 text-brand-300 ring-1 ring-white/15">
                   <IconFingerprint className="h-6 w-6" />
                 </span>
                 <h2 className="mt-6 text-3xl font-semibold tracking-tight text-white sm:text-4xl">
@@ -451,12 +457,12 @@ export default function Home() {
                   return (
                     <li
                       key={item.text}
-                      className="glass flex items-start gap-3.5 rounded-2xl p-4"
+                      className="flex items-start gap-3.5 rounded-2xl border border-white/10 bg-white/[0.06] p-4 backdrop-blur-md"
                     >
-                      <span className="grid h-9 w-9 shrink-0 place-items-center rounded-xl bg-white/10 text-brand-200">
+                      <span className="grid h-9 w-9 shrink-0 place-items-center rounded-xl bg-white/10 text-brand-300">
                         <Icon className="h-4.5 w-4.5" />
                       </span>
-                      <span className="text-sm leading-6 text-frost-200">{item.text}</span>
+                      <span className="text-sm leading-6 text-frost-100">{item.text}</span>
                     </li>
                   );
                 })}
@@ -482,16 +488,16 @@ export default function Home() {
       {/* ── CTA ─────────────────────────────────────────────── */}
       <Section id="cta" className="pt-4!">
         <Reveal>
-          <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-space-850 px-8 py-16 text-center sm:px-12">
+          <div className="relative overflow-hidden rounded-3xl border border-slate-200 bg-gradient-to-b from-white to-slate-50 px-8 py-16 text-center shadow-md sm:px-12 dark:border-white/10 dark:bg-space-850 dark:from-space-850 dark:to-space-850 dark:shadow-none">
             <div
               aria-hidden
-              className="absolute inset-0 bg-[radial-gradient(ellipse_60%_80%_at_50%_-20%,rgba(22,104,255,0.35),transparent_70%)]"
+              className="absolute inset-0 bg-[radial-gradient(ellipse_60%_80%_at_50%_-20%,rgba(22,104,255,0.18),transparent_70%)] dark:bg-[radial-gradient(ellipse_60%_80%_at_50%_-20%,rgba(22,104,255,0.35),transparent_70%)]"
             />
             <div className="relative">
               <h2 className="mx-auto max-w-2xl text-3xl font-semibold tracking-tight text-gradient-soft sm:text-4xl">
                 The open way to move your data
               </h2>
-              <p className="mx-auto mt-4 max-w-xl text-frost-400">
+              <p className="mx-auto mt-4 max-w-xl text-slate-600 dark:text-frost-400">
                 Start with the fixtures demo — no accounts, no credentials, the whole
                 pipeline in under a minute.
               </p>
@@ -505,7 +511,7 @@ export default function Home() {
                 </Link>
                 <Link
                   href="/jobs"
-                  className="inline-flex items-center gap-2 rounded-full border border-white/15 px-7 py-3.5 text-sm font-medium text-frost-200 transition hover:border-white/35 hover:text-white"
+                  className="inline-flex items-center gap-2 rounded-full border border-slate-300 bg-white/80 px-7 py-3.5 text-sm font-medium text-slate-700 shadow-xs transition hover:border-slate-400 hover:bg-slate-50 hover:text-slate-900 dark:border-white/15 dark:bg-transparent dark:text-frost-200 dark:shadow-none dark:hover:border-white/35 dark:hover:text-white"
                 >
                   View jobs
                 </Link>

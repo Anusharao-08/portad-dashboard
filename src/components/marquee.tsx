@@ -23,7 +23,7 @@ function Row({ items }: { items: string[] }) {
       {items.map((item, index) => (
         <span
           key={`${item}-${index}`}
-          className="glass flex items-center gap-2.5 rounded-full px-5 py-2.5 text-sm font-medium text-frost-300 transition-colors hover:border-brand-400/40 hover:text-frost-50"
+          className="glass flex items-center gap-2.5 rounded-full px-5 py-2.5 text-sm font-medium text-slate-700 shadow-xs transition-colors hover:border-brand-500/50 hover:text-slate-900 dark:text-frost-300 dark:shadow-none dark:hover:text-frost-50"
         >
           <span
             aria-hidden="true"

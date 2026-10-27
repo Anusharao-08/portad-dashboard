@@ -12,7 +12,7 @@ export default function ThemeToggle({ className }: { className?: string }) {
         aria-label="Toggle theme"
         disabled
         className={
-          "relative grid h-8 w-8 place-items-center rounded-full border border-white/10 bg-white/[0.03] text-frost-400 opacity-60 transition " +
+          "relative grid h-8 w-8 place-items-center rounded-full border border-slate-200 bg-white text-slate-400 opacity-60 shadow-xs dark:border-white/10 dark:bg-white/[0.03] dark:text-frost-400 " +
           (className ?? "")
         }
       >
@@ -30,7 +30,7 @@ export default function ThemeToggle({ className }: { className?: string }) {
       aria-label={isDark ? "Switch to light theme" : "Switch to dark theme"}
       title={isDark ? "Switch to light theme" : "Switch to dark theme"}
       className={
-        "group relative grid h-8 w-8 place-items-center rounded-full border border-white/12 bg-white/[0.04] text-frost-300 transition-all hover:border-white/30 hover:bg-white/[0.08] hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-400/70 " +
+        "group relative grid h-8 w-8 place-items-center rounded-full border border-slate-200 bg-white text-slate-700 shadow-xs transition-all hover:border-slate-300 hover:bg-slate-50 hover:text-slate-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500/70 dark:border-white/12 dark:bg-white/[0.04] dark:text-frost-300 dark:shadow-none dark:hover:border-white/30 dark:hover:bg-white/[0.08] dark:hover:text-white " +
         (className ?? "")
       }
     >
@@ -42,7 +42,7 @@ export default function ThemeToggle({ className }: { className?: string }) {
           strokeWidth={1.9}
           strokeLinecap="round"
           strokeLinejoin="round"
-          className="h-4 w-4 transition-transform duration-300 group-hover:rotate-45"
+          className="h-4 w-4 text-amber-300 transition-transform duration-300 group-hover:rotate-45"
           aria-hidden="true"
         >
           <circle cx="12" cy="12" r="4" />
@@ -63,7 +63,7 @@ export default function ThemeToggle({ className }: { className?: string }) {
           strokeWidth={1.9}
           strokeLinecap="round"
           strokeLinejoin="round"
-          className="h-4 w-4 text-slate-800 transition-transform duration-300 group-hover:-rotate-12 dark:text-frost-300"
+          className="h-4 w-4 text-slate-700 transition-transform duration-300 group-hover:-rotate-12 dark:text-frost-300"
           aria-hidden="true"
         >
           <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
