@@ -183,7 +183,7 @@ export default function Home() {
               </Reveal>
 
               <Reveal delay={0.08}>
-                <h1 className="mt-6 text-5xl font-semibold leading-[1.05] tracking-tight text-gradient-soft sm:text-6xl lg:text-7xl">
+                <h1 className="mt-6 text-4xl font-semibold leading-[1.08] tracking-tight text-gradient-soft sm:text-6xl lg:text-7xl">
                   Move your workspace.
                   <br />
                   <span className="text-gradient-brand">Keep the truth.</span>
@@ -299,7 +299,7 @@ export default function Home() {
               return (
                 <div
                   key={category.title}
-                  className="glass w-[280px] shrink-0 snap-start rounded-2xl p-6 transition duration-300 hover:border-brand-400/40 sm:w-[320px]"
+                  className="glass w-[260px] shrink-0 snap-start rounded-2xl p-5 sm:p-6 transition duration-300 hover:border-brand-400/40 sm:w-[320px]"
                 >
                   <span className="grid h-11 w-11 place-items-center rounded-xl border border-white/10 bg-white/[0.05] text-brand-300">
                     <Icon className="h-5 w-5" />
@@ -370,7 +370,7 @@ export default function Home() {
           sub="Vendor exports lose relationships. Copy-paste loses weekends. PortaD is the third option."
         />
         <Reveal delay={0.1}>
-          <div className="mt-12 overflow-x-auto">
+          <div className="mt-12 -mx-4 overflow-x-auto px-4 sm:mx-0 sm:px-0">
             <table className="w-full min-w-[560px] border-separate border-spacing-0 text-sm">
               <thead>
                 <tr className="text-left">
