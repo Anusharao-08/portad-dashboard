@@ -108,15 +108,15 @@ export default function Migrate() {
                           : "border border-slate-200 bg-white text-slate-400 dark:border-white/15 dark:bg-space-850 dark:text-frost-500")
                     }
                   >
-                    <span aria-hidden="true">{state === "done" ? "✓" : index + 1}</span>
+                  <span aria-hidden="true">{state === "done" ? "✓" : index + 1}</span>
                     <span className="sr-only">
                       {state === "done"
-                        ? `, step ${index + 1} completed`
+                        ? `Step ${index + 1} completed`
                         : state === "current"
-                          ? `, step ${index + 1}, current step`
-                          : `, step ${index + 1}, upcoming`}
+                        ? `Step ${index + 1}, current step`
+                        : `Step ${index + 1}, upcoming`}
+                      </span>
                     </span>
-                  </span>
                   <span
                     aria-current={state === "current" ? "step" : undefined}
                     className={
