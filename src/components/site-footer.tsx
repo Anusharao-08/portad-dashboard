@@ -1,5 +1,4 @@
 import Link from "next/link";
-
 import ApiStatus from "@/components/api-status";
 import { LogoTile, Wordmark } from "@/components/logo";
 import { API_URL, GITHUB_URL } from "@/lib/config";
@@ -48,7 +47,7 @@ export default function SiteFooter() {
 
         {COLUMNS.map((column) => (
           <nav key={column.title} aria-label={column.title}>
-            <h3 className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-800 dark:text-frost-600">
+            <h3 className="text-xs font-semibold uppercase tracking-[0.2em] text-frost-300">
               {column.title}
             </h3>
             <ul className="mt-4 space-y-2.5 text-sm">
@@ -78,14 +77,14 @@ export default function SiteFooter() {
         ))}
       </div>
 
-      <div className="border-t border-slate-200 dark:border-white/8">
-        <div className="mx-auto flex w-full max-w-6xl flex-col items-start justify-between gap-2 px-4 py-6 text-xs text-slate-500 dark:text-frost-600 sm:flex-row sm:items-center sm:px-6">
+      <div className="border-t border-white/8">
+        <div className="mx-auto flex w-full max-w-6xl flex-col items-start justify-between gap-2 px-4 py-6 text-xs text-frost-300 sm:flex-row sm:items-center sm:px-6">
           <p>© 2026 VishMuKa TechWorks Private Limited · MIT licensed</p>
           <p className="flex items-center gap-3">
-            <Link href="/migrate" className="transition-colors hover:text-slate-900 dark:hover:text-frost-300">
+            <Link href="/migrate" className="text-frost-300 transition-colors hover:text-white">
               Start a migration
             </Link>
-            <span aria-hidden className="text-slate-300 dark:text-frost-600/50">
+            <span aria-hidden className="text-frost-300/50">
               ·
             </span>
             <span>built for portability, not lock-in</span>
