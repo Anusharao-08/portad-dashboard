@@ -53,6 +53,45 @@ npm run lint
 npm run build
 ```
 
+
+### Testing
+
+The project uses Vitest for unit tests and Playwright for browser-based end-to-end (E2E) tests.
+
+Run the unit tests:
+
+```bash
+npm test
+```
+
+Run the unit tests in watch mode:
+
+```bash
+npm run test:watch
+```
+
+Install the Playwright Chromium browser for local E2E testing:
+
+```bash
+npx playwright install chromium
+```
+
+Run the E2E tests:
+
+```bash
+npm run test:e2e
+```
+
+Before opening a pull request, run all checks:
+
+```bash
+npm test
+npm run test:e2e
+npm run lint
+npm run build
+```
+
+
 ## Project structure
 
 ```text

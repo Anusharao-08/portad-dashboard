@@ -460,19 +460,19 @@ describe("Migrate wizard", () => {
       render(<Migrate />);
 
       // Step 0: Step 1 is current, rest are upcoming
-      expect(screen.getByText(", step 1, current step")).toBeInTheDocument();
-      expect(screen.getByText(", step 2, upcoming")).toBeInTheDocument();
-      expect(screen.getByText(", step 3, upcoming")).toBeInTheDocument();
-      expect(screen.getByText(", step 4, upcoming")).toBeInTheDocument();
+      expect(screen.getByText("Step 1, current step")).toBeInTheDocument();
+      expect(screen.getByText("Step 2, upcoming")).toBeInTheDocument();
+      expect(screen.getByText("Step 3, upcoming")).toBeInTheDocument();
+      expect(screen.getByText("Step 4, upcoming")).toBeInTheDocument();
 
       // Advance to Step 1
       fireEvent.click(screen.getByRole("button", { name: /notion/i }));
       fireEvent.click(screen.getByRole("button", { name: "Next" }));
 
       // Step 1 is completed, Step 2 is current
-      expect(screen.getByText(", step 1 completed")).toBeInTheDocument();
-      expect(screen.getByText(", step 2, current step")).toBeInTheDocument();
-      expect(screen.getByText(", step 3, upcoming")).toBeInTheDocument();
+      expect(screen.getByText("Step 1 completed")).toBeInTheDocument();
+      expect(screen.getByText("Step 2, current step")).toBeInTheDocument();
+      expect(screen.getByText("Step 3, upcoming")).toBeInTheDocument();
     });
   });
 });
