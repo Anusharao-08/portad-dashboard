@@ -455,5 +455,24 @@ describe("Migrate wizard", () => {
       // Cannot go before step 0
       expect(screen.getByRole("button", { name: "Back" })).toBeDisabled();
     });
+
+    it("announces step status for screen readers and updates as wizard advances", () => {
+      render(<Migrate />);
+
+      // Step 0: Step 1 is current, rest are upcoming
+      expect(screen.getByText("Step 1, current step")).toBeInTheDocument();
+      expect(screen.getByText("Step 2, upcoming")).toBeInTheDocument();
+      expect(screen.getByText("Step 3, upcoming")).toBeInTheDocument();
+      expect(screen.getByText("Step 4, upcoming")).toBeInTheDocument();
+
+      // Advance to Step 1
+      fireEvent.click(screen.getByRole("button", { name: /notion/i }));
+      fireEvent.click(screen.getByRole("button", { name: "Next" }));
+
+      // Step 1 is completed, Step 2 is current
+      expect(screen.getByText("Step 1 completed")).toBeInTheDocument();
+      expect(screen.getByText("Step 2, current step")).toBeInTheDocument();
+      expect(screen.getByText("Step 3, upcoming")).toBeInTheDocument();
+    });
   });
 });
